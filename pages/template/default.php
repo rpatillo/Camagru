@@ -23,7 +23,7 @@
             <ul>
               <?PHP
               $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
-              if ($_SESSION['auth']) {
+              if (isset($_SESSION['auth'])) {
                 echo "<li><a href=\"#\">" . ucfirst($_SESSION['auth']) . "</a></li>";
                 echo "<li><a href=\"index.php?p=photo\">Photo</a></li>";
                 echo "<li><a href=\"#\">Gallery</a></li>";

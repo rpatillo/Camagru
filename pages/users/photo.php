@@ -6,14 +6,22 @@
 <button id="startbutton">Take a picture</button>
 <button id="savebutton">Save</button>
 
+<div id="result"></div>
+
+
+
 <script>
     (function () {
-        var streaming = false,
+
+        var data = ''
+
+         var streaming = false,
             video = document.querySelector('#video'),
             cover = document.querySelector('#cover'),
             canvas = document.querySelector('#canvas'),
             photo = document.querySelector('#photo'),
             startbutton = document.querySelector('#startbutton'),
+            savebutton = document.querySelector('#savebutton'),
             width = 320,
             height = 0;
         navigator.getMedia = ( navigator.getUserMedia ||
@@ -49,52 +57,25 @@
             }
         }, false);
 
-        function takepicture() {
+        startbutton.addEventListener('click', function (ev) {
             canvas.width = width;
             canvas.height = height;
             canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-            var data = canvas.toDataURL();
+            data = canvas.toDataURL();
             data = data.replace('data:image/png;base64,', '');
-
-            console.log(data);
-
-            //       var postData = JSON.stringify({ imgData: data });
-
-
-//              if(window.openDatabase){
-//              var shortName = 'tata.db';
-//              var version = '1.0';
-//              var displayName = 'Display Information';
-//              var maxSize = 65536; // in bytes
-//              //db = openDatabase(shortName, version, displayName, maxSize);
-//
-//            console.log("TOTO");
-//        }
-
-//    photo.setAttribute('src', data);
-//      if (window.openDatabase) {
-//        var db = openDatabase('./camagru.db', '1.0', 'database', 2000000);
-//        db.transaction(function (tx) {
-//            tx.executeSql('CREATE TABLE foo (id unique, text)');
-//            console.log("TEST!");
-//        });
-//
-//      }
-        }
-
-        function savepicture() {
-            console.log(data);
-            console.log("SVG");
-            window.location.href = "index.php?p=photo&img=" + data;
-        }
-
-        startbutton.addEventListener('click', function (ev) {
-            takepicture();
             ev.preventDefault();
         }, false);
 
         savebutton.addEventListener('click', function (ev) {
-            savepicture();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById('result').innerHTML = xhttp.responseText;
+                }
+            };
+            xhttp.open("POST", "/includes/savepic.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send('photo=' + data);
             ev.preventDefault();
         }, false);
     })();

@@ -28,7 +28,7 @@ class DBAuth {
         return false;
     }
     
-    /*
+    /**
      * @param $login
      * @param $password
      */

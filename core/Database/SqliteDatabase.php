@@ -14,7 +14,7 @@ class SqliteDatabase extends Database{
 
     private function getPDO() {
         if ($this->pdo === NULL) {
-            $pdo = new PDO('sqlite:blog.db');
+            $pdo = new PDO('sqlite:' . ROOT . '/public/blog.db');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;            
         }
