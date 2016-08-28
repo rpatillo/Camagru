@@ -24,9 +24,8 @@
               <?PHP
               $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
               if (isset($_SESSION['auth'])) {
-                echo "<li><a href=\"#\">" . ucfirst($_SESSION['auth']) . "</a></li>";
                 echo "<li><a href=\"index.php?p=photo\">Photo</a></li>";
-                echo "<li><a href=\"#\">Gallery</a></li>";
+                echo "<li><a href=\"index.php?p=gallery\">Gallery</a></li>";
                 echo "<li><a class=\"navbar-brand\" href=\"index.php?p=logout\" \">Logout</a></li>";
               }
               ?>
@@ -45,6 +44,11 @@
       <!-- FOOTER -->
     <div class="footer-container">
       <footer class="wrapper">
+          <?php
+          if (isset($_SESSION['auth'])) {
+              echo "<h4 style='margin-left: 10%'>" . ucfirst($_SESSION['auth']) . "</h4>";
+          }
+          ?>
         <h6 style="margin-left: 90% !important;">rpatillo | 42 school</h6>
       </footer>
     </div>

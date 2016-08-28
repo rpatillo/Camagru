@@ -31,6 +31,8 @@ if ($page === 'home') {
     require ROOT . '/pages/users/photo.php';
 } elseif ($page === 'logout') {
     require ROOT . '/pages/users/logout.php';
+} elseif ($page === 'gallery') {
+    require ROOT . '/pages/users/gallery.php';
 }
 $content = ob_get_clean();
 require ROOT . '/pages/template/default.php';

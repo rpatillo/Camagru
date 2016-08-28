@@ -13,20 +13,20 @@ define('ROOT', dirname(dirname(__DIR__)));
 require ROOT . '/app/App.php';
 App::load();
 
-function debug($value)
-{
-    echo '<pre>' . print_r($value, true) . '</pre>';
-}
-
-debug($_POST);
-debug($_SESSION);
-
-
+/**
+ * USEFULL FUNCT
+ *
+ * function debug($value)
+ * {
+ * echo '<pre>' . print_r($value, true) . '</pre>';
+ * }
+ * debug($_POST);
+ * debug($_SESSION);
+*/
 
 if (!empty($_POST)) {
-    echo 'foo';
-    $auth = new \Core\Auth\SavePhoto(App::getInstance()->getDb());
+    $auth = new \Core\Auth\Photos(App::getInstance()->getDb());
     if ($auth->savePic($_POST['photo'], $_SESSION['auth'])) {
-        echo 'Suksex';
+        echo 'Success';
     }
 }

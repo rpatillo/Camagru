@@ -11,7 +11,7 @@ namespace Core\Auth;
 use Core\Database\Database;
 use \PDO;
 
-class SavePhoto
+class Photos
 {
     private $db;
 
@@ -26,5 +26,14 @@ class SavePhoto
             return true;
         }
         return false;
+    }
+
+    public function printPic($username) { //, $one, $id_pict) {
+        if (isset($username)) {
+            $pict = $this->db->prepare('SELECT * FROM photo', $array, NULL, false, true);
+            return $pict;
+        } else {
+            return 'Toto';
+        }
     }
 }
