@@ -47,7 +47,7 @@ class SqliteDatabase extends Database{
         $req = $this->getPDO()->prepare($stmt);
         $req->execute($attributes);
         if ($ret)
-            return $ret;
+            return $req;
         if ($class_name === NULL) {
             $req->setFetchMode(PDO::FETCH_OBJ);
         } else {

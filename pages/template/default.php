@@ -36,7 +36,7 @@
 
       <!-- CONTENT -->
     <div class="main-container">
-      <div class="main wrapper clearfix" style="padding-top: 100px;">
+      <div class="main wrapper clearfix" style="padding-top: 100px; position: relative;">
         <?= $content; ?>
       </div>
     </div>
