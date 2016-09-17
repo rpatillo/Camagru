@@ -12,6 +12,7 @@
 <!---->
 <!--</div>-->
 
+
 <?php
 
     function debug($value)
@@ -25,19 +26,18 @@
 
 
 
-foreach($result as $post) {
-    echo '<img id="myBtn" src="' . $post->photo . '" />';
-    echo '<div id="myModal" class="modal">';
-    echo '<div class="modal-content">';
-    echo '<span class="close">x</span>';
-    echo '<img src="' . $post->photo . '" />';
-    echo '</div>';
-    echo '</div>';
-}
-?>
+foreach($result as $post) : ?>
+    <img class="bigpict" id="myBtn<?=$post->id?>" src="<?=$post->photo?>" />
+    <div name="divimg" id="myModal" class="modal">
+        <div class="modal-content">
+            <span name="bclose" class="close">x</span>
+            <img src="<?=$post->photo?>" />
+            <form method='post'>
+                Comment:<br />
+                <textarea></textarea>
+            </form>
+        </div>
+    </div>
+<?PHP endforeach;?>
 
 <script src="JS/modalBox.js"></script>
-
-
-
-

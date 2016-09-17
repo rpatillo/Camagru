@@ -15,7 +15,7 @@ App::load();
 
 if (!empty($_POST)) {
     $auth = new \Core\Auth\Photos(App::getInstance()->getDb());
-    if ($auth->savePic($_POST['photo'], $_SESSION['auth'])) {
+    if ($auth->savePic($_POST['photo'], $_SESSION['auth'], NULL)) {
         echo 'Success';
     } else {
         echo 'Something went terribly wrong ...';

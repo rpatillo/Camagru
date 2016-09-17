@@ -6,7 +6,8 @@ if (!empty($_POST)) {
         ?>
         <div class="alert alert-success">
             <strong>Account created.</strong> <br />
-            A mail as been sent to you. TODO
+            A mail as been sent to you.
+            <!--TODO : MAIL-->
         </div>
         <?PHP
     } else {
@@ -24,5 +25,5 @@ $form = new \Core\HTML\BootstrapForm($_POST);
 <form method="post">
     <?= $form->input('login', 'Login'); ?>
     <?= $form->input('password', 'Password', ['type' => 'password']); ?>
-    <button class="btn btn-primary">Envoyer</button>
+    <button>Envoyer</button>
 </form>

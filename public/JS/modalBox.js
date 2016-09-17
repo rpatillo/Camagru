@@ -2,28 +2,33 @@
  * Created by rpatillo on 9/13/16.
  */
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var pict = document.getElementsByClassName("bigpict");
+var divimg = document.getElementsByName("divimg");
+var bclose = document.getElementsByName("bclose");
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
+for (i = 0; i < pict.length; i++){
+    (function(i){
+        pict[i].onclick = function() {
+            divimg[i].style.display = "block";
+        };
+    }(i));
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+for (i = 0; i < pict.length; i++){
+    (function(i){
+        bclose[i].onclick = function() {
+            divimg[i].style.display = "none";
+        };
+    }(i));
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    for (i = 0; i < pict.length; i++) {
+        if (event.target == divimg[i]) {
+            divimg[i].style.display = "none";
+        }
     }
 }

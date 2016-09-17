@@ -22,3 +22,6 @@
 <img id="photo1" src="/img/photo.png">
 
 <script src="JS/JSphoto.js"></script>
+
+
+
