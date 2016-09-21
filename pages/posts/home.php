@@ -34,4 +34,3 @@ $form = new \Core\HTML\BootstrapForm($_POST);
         </div>
     </div>
 </div>
-

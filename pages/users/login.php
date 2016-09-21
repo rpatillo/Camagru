@@ -1,4 +1,11 @@
-<?PHP
+<?php
+/**
+ * Created by PhpStorm.
+ * User: rpatillo
+ * Date: 9/19/16
+ * Time: 11:34 AM
+ */
+
 echo '<h1> LOGIN </h1>';
 if (!empty($_POST)) {
     $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
@@ -6,9 +13,9 @@ if (!empty($_POST)) {
         header('Location: index.php?p=photo');
     } else {
         ?>
-            <div class="alert alert-danger">
-                Indentifiants incorrect
-            </div>
+        <div class="alert alert-danger">
+            Indentifiants incorrect
+        </div>
         <?PHP
     }
 }

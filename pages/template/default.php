@@ -42,7 +42,7 @@
     </div>
 
       <!-- FOOTER -->
-    <div class="footer-container">
+    <div class="footer-container" style="bottom: 0; position: relative; width: 100%">
       <footer class="wrapper">
           <?php
           if (isset($_SESSION['auth'])) {

@@ -30,11 +30,10 @@ class Photos
 
     public function printPic($username) { //, $one, $id_pict) {
         if (isset($username)) {
-//            $pict = $this->db->prepare('SELECT * FROM photo', $array, NULL, false, true);
-            $pict = $this->db->query('SELECT * FROM photo');
-            return $pict;
+            $pict = $this->db->query('SELECT * FROM photo WHERE username=\''. $username . '\'');
         } else {
-            return 'Toto';
+            $pict = $this->db->query('SELECT * FROM photo');
         }
+        return $pict;
     }
 }

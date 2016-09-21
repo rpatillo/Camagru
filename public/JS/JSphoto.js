@@ -4,9 +4,9 @@
 
 (function () {
 
-    var data = ''
-    var x = ''
-    var y = ''
+    var data = '';
+    var x = '';
+    var y = '';
 
     var streaming = false,
         video = document.querySelector('#video'),
@@ -17,14 +17,17 @@
         savebutton = document.querySelector('#savebutton'),
         modify = document.querySelector('#modify'),
         photo1 = document.querySelector('#photo1'),
-        YVal = document.querySelector('#YVal'),
+        photo2 = document.querySelector('#photo2'),
+        photo3 = document.querySelector('#photo3'),
+        XVal = document.getElementById('myRangeX');
+        YVal = document.getElementById('myRangeY');
         width = 320,
         height = 0;
-    navigator.getMedia = ( navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia);
-    navigator.getMedia(
+        navigator.getMedia = ( navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
+        navigator.getMedia(
         {
             video: true,
             audio: false
@@ -42,28 +45,27 @@
             console.log("An error occured! " + err);
         }
     );
+
     video.addEventListener('canplay', function (ev) {
         if (!streaming) {
             height = video.videoHeight / (video.videoWidth / width);
             video.setAttribute('width', width);
             video.setAttribute('height', height);
+            feed.setAttribute('width', width);
+            feed.setAttribute('height', height);
             canvas.setAttribute('width', width);
             canvas.setAttribute('height', height);
             streaming = true;
+
         }
     }, false);
 
     startbutton.addEventListener('click', function (ev) {
         canvas.width = width;
         canvas.height = height;
-        canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-        canvas.getContext('2d').drawImage(photo1, 10, 10);
+        canvas.getContext('2d').drawImage(feed, 0, 0, width, height);
         data = canvas.toDataURL();
         ev.preventDefault();
-    }, false);
-
-    modify.addEventListener('click', function (ev) {
-
     }, false);
 
     savebutton.addEventListener('click', function (ev) {
@@ -80,12 +82,25 @@
         ev.preventDefault();
     }, false);
 
+    window.onload = function() {
+        streamFeed();
+        video.style.display = 'none';
+    }
 
-    var XVal = document.getElementById('myRange');
+    function streamFeed() {
+        XVal = 100;
+        var context = feed.getContext('2d');
+
+        requestAnimationFrame(streamFeed);
+        context.drawImage(video, 0, 0, feed.width, feed.height);
+        context.drawImage(photo1, x, y);
+    }
+
     XVal.addEventListener("mousemove", function () {
-        document.getElementById('XVal').innerHTML = this.value;
+        x = this.value * 2;
     });
 
-    document.getElementById('XXVal').innerHTML = x;
-
+    YVal.addEventListener("mousemove", function () {
+        y = this.value;
+    });
 })();

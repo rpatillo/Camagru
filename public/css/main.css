@@ -74,13 +74,13 @@ body {
     border-bottom: 20px solid #717171;
 }
 
-.footer-container,
-.main aside {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    border-top: 20px solid #717171;
-}
+/*.footer-container,*/
+/*.main aside {*/
+    /*position: fixed;*/
+    /*bottom: 0px;*/
+    /*width: 100%;*/
+    /*border-top: 20px solid #717171;*/
+/*}*/
 
 .header-container,
 .footer-container,

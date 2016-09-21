@@ -32,15 +32,24 @@ class DBAuth {
      * @param $login
      * @param $password
      */
-    public function subscribe($login, $password) {
+    public function subscribe($login, $password, $mail) {
         $hash = hash('whirlpool', $password);
-        $array = array($login, $hash);
+        $array = array($login, $hash, $mail);
         $user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$login], NULL, true);
         if (!$user) {
-            $req = $this->db->prepare('INSERT INTO users VALUES ( ?, ? , NULL)', $array, NULL, false, true);
+            $this->db->prepare('INSERT INTO users VALUES ( ?, ?, ?, NULL)', $array, NULL, false, true);
             return true;
         }
         return false;
+    }
+
+    public function mail($login, $mail, $body = NULL) {
+        $subject = "Registration Camagru";
+        if ($body === NULL) {
+            $body = "You've successfully registered on Camagru. This website allows you to take and share pictures. Enjoy your day !";
+        }
+        $headers = "Hi $login.";
+        mail($mail, $subject, $body, $headers);
     }
     
     /**
