@@ -5,6 +5,7 @@
 var pict = document.getElementsByClassName("bigpict");
 var divimg = document.getElementsByName("divimg");
 var bclose = document.getElementsByName("bclose");
+var send = document.getElementsByName("subbtn");
 
 // When the user clicks on the button, open the modal
 for (i = 0; i < pict.length; i++){
@@ -31,4 +32,13 @@ window.onclick = function(event) {
             divimg[i].style.display = "none";
         }
     }
+};
+
+for (i = 0; i < send.length; i++) {
+    (function(i) {
+        send[i].onclick = function() {
+            
+        };
+    }(i));
 }
+

@@ -21,9 +21,11 @@ foreach($result as $post) : ?>
             <form method='post'>
                 Comment:<br />
                 <textarea></textarea>
+                <br />
+                <button name="subbtn">Envoyer</button>
             </form>
         </div>
     </div>
 <?PHP endforeach;?>
 
-<script src="JS/GalmodBox.js"></script>
+<script src="JS/Gallery.js"></script>

@@ -25,5 +25,5 @@ $form = new \Core\HTML\BootstrapForm($_POST);
 <form method="post">
     <?= $form->input('username', 'Login'); ?>
     <?= $form->input('password', 'Password', ['type' => 'password']); ?>
-    <button class="btn btn-primary">Envoyer</button>
+    <button>Envoyer</button>
 </form>
