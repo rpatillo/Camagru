@@ -6,6 +6,9 @@ var pict = document.getElementsByClassName("bigpict");
 var divimg = document.getElementsByName("divimg");
 var bclose = document.getElementsByName("bclose");
 var send = document.getElementsByName("subbtn");
+var text = document.getElementsByName("text");
+var user = document.getElementsByName("user");
+var id_photo = document.getElementsByName("id_photo");
 
 // When the user clicks on the button, open the modal
 for (i = 0; i < pict.length; i++){
@@ -34,11 +37,14 @@ window.onclick = function(event) {
     }
 };
 
-for (i = 0; i < send.length; i++) {
-    (function(i) {
-        send[i].onclick = function() {
-            
+for (i = 0; i < pict.length; i++){
+    (function(i){
+        send[i].onclick = function(ev) {
+            ev.preventDefault();
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "/includes/savecom.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send('t=' + text[i].value + '&u=' + user[i].value + '&id=' + id_photo[i].value);
         };
     }(i));
 }
-

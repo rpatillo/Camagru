@@ -36,4 +36,9 @@ class Photos
         }
         return $pict;
     }
+
+    public function saveCom($com, $username, $id_photo) {
+        $array = array($com, $username, $id_photo);
+        $ret = $this->db->prepare('INSERT INTO comments VALUES (?, ?, ?)', $array, NULL, false, true);
+    }
 }

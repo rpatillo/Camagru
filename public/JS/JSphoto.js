@@ -21,6 +21,7 @@
         photo3 = document.querySelector('#photo3'),
         XVal = document.getElementById('myRangeX');
         YVal = document.getElementById('myRangeY');
+        pict_add = document.getElementsByClassName('photos');
         width = 320,
         height = 0;
         navigator.getMedia = ( navigator.getUserMedia ||
@@ -103,4 +104,15 @@
     YVal.addEventListener("mousemove", function () {
         y = this.value;
     });
+
+    for (i = 0; i < pict_add.length; i++){
+        (function(i){
+            pict_add[i].onclick = function() {
+                console.log('bla');
+                pict_add[i].style.border = '1px solid #021a40';
+            };
+        }(i));
+    }
+
 })();
+

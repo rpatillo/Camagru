@@ -26,10 +26,11 @@ $result = $auth->printPic($_SESSION['auth']);
     <div id="XXVal"></div>
     <div id="YVal"></div>
 
-<img id="photo1" src="/img/photo.png">
-<img id="photo2" src="/img/hat.png">
-<img id="photo3" src="/img/Eyes.png">
+    <img class='photos' id="photo1" src="/img/photo.png">
+    <img class='photos' id="photo2" src="/img/hat.png">
+    <img class='photos' id="photo3" src="/img/Eyes.png">
 </article>
+
 <aside style="max-height: 750px; overflow-y:scroll; width: 40%">
     <br />
     <?PHP foreach($result as $post) : ?>
