@@ -35,14 +35,14 @@
       </div>
 
       <!-- CONTENT -->
-    <div class="main-container">
+    <div class="main-container" style="margin: 0 0 163px;">
       <div class="main wrapper clearfix" style="padding-top: 100px; position: relative;">
         <?= $content; ?>
       </div>
     </div>
 
       <!-- FOOTER -->
-    <div class="footer-container" style="bottom: 0; position: relative; width: 100%">
+    <div class="footer-container" style="bottom: 0; position: fixed; width: 100%">
       <footer class="wrapper">
           <?php
           if (isset($_SESSION['auth'])) {

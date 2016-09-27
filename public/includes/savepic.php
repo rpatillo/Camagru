@@ -16,7 +16,10 @@ App::load();
 if (!empty($_POST)) {
     $auth = new \Core\Auth\Photos(App::getInstance()->getDb());
     if ($auth->savePic($_POST['photo'], $_SESSION['auth'], NULL)) {
-        echo 'Success';
+        $result = $auth->printPic($_SESSION['auth']);
+        foreach ($result as $post) {
+            echo '<img src="' . $post->photo . '" />';
+        }
     } else {
         echo 'Something went terribly wrong ...';
     }

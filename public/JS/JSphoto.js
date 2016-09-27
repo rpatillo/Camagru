@@ -22,6 +22,7 @@
         XVal = document.getElementById('myRangeX');
         YVal = document.getElementById('myRangeY');
         pict_add = document.getElementsByClassName('photos');
+        aside = document.getElementById('aside');
         width = 320,
         height = 0;
         navigator.getMedia = ( navigator.getUserMedia ||
@@ -74,7 +75,8 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-                document.getElementById('result').innerHTML = xhttp.responseText;
+                document.getElementById('result').innerHTML = 'Success';
+                aside.innerHTML = xhttp.responseText;
             }
         };
         xhttp.open("POST", "/includes/savepic.php", true);
@@ -94,7 +96,7 @@
 
         requestAnimationFrame(streamFeed);
         context.drawImage(video, 0, 0, feed.width, feed.height);
-        context.drawImage(photo1, x, y);
+        context.drawImage(photo3, x, y);
     }
 
     XVal.addEventListener("mousemove", function () {

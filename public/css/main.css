@@ -59,6 +59,7 @@ textarea {
 
 body {
     font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    margin: 0 0 163px;
 }
 
 .wrapper {
@@ -398,6 +399,7 @@ nav a:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    display: -webkit-box;
 }
 
 /* The Close Button */

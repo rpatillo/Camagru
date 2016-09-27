@@ -41,4 +41,11 @@ class Photos
         $array = array($com, $username, $id_photo);
         $ret = $this->db->prepare('INSERT INTO comments VALUES (?, ?, ?)', $array, NULL, false, true);
     }
+
+    public function printCom($id) {
+        if (isset($id))
+            return $this->db->query('SELECT * FROM comments WHERE id=\'' . $id . '\'');
+        else
+            return $this->db->query('SELECT * FROM comments');
+    }
 }
